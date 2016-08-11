@@ -17,7 +17,7 @@ class Form extends React.Component {
 
 	simulationSubmit() {
 
-		axios.post('http://localhost:3000/avalanche', {
+		axios.post('http://localhost:3001/avalanche', {
 			url: this.state.endpoint, 
 			maxSeconds: this.state.duration, 
 			concurrency: this.state.concurrency, 
@@ -39,7 +39,6 @@ class Form extends React.Component {
 
 	endpointChange(e) {
 	   this.setState({endpoint: e.target.value});
-	   console.log(this.state.endpoint);
 	}
 
 	durationChange(e) {

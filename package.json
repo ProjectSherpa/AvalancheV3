@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "axios": "^0.13.1",
+    "body-parser": "^1.15.2",
+    "loadtest": "^1.4.4",
     "react-bootstrap": "^0.30.2"
   }
 }
