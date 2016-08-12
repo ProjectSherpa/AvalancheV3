@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Image, Jumbotron, FormGroup, FormControl, HelpBlock, ControlLabel, FieldGroup, Button, Checkbox} from 'react-bootstrap';
+import { Router, Route, Link , IndexRoute} from 'react-router';
 
 class Form extends React.Component {
 
@@ -100,8 +101,9 @@ class Form extends React.Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-
-        <Button onClick={this.simulationSubmit.bind(this)}>Simulate</Button>
+          <Link role="button" to="/results">
+            Review
+          </Link>
       </form>
     );
   }
