@@ -37,6 +37,9 @@
     "axios": "^0.13.1",
     "body-parser": "^1.15.2",
     "loadtest": "^1.4.4",
-    "react-bootstrap": "^0.30.2"
+    "react-bootstrap": "^0.30.2",
+    "react-burger-menu": "https://registry.npmjs.org/react-burger-menu/-/react-burger-menu-1.10.2.tgz",
+    "react-router": "^2.6.1",
+    "react-sidebar": "^2.2.1"
   }
 }

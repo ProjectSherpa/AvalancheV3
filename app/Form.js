@@ -101,17 +101,6 @@ class Form extends React.Component {
           <FormControl.Feedback />
         </FormGroup>
 
-        <FormGroup>
-        <ControlLabel>Keep Alive? </ControlLabel>
-          <Checkbox inline>
-            Yes
-          </Checkbox>
-          {' '}
-          <Checkbox inline>
-            No
-          </Checkbox>
-        </FormGroup>
-
         <Button onClick={this.simulationSubmit.bind(this)}>Simulate</Button>
       </form>
     );
