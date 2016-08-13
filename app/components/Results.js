@@ -8,7 +8,15 @@ class Results extends React.Component {
 	}
 	 render() {
 	 	return (
-	 		<h3>How To Use This Tool</h3>
+	 		<div>
+		 		<h3>Results of your test</h3>
+		 		<p>Max Latency: </p>
+		 		<p>Min Latency: </p>
+		 		<p>Mean Latency: </p>
+		 		<p>RPS: </p>
+		 		<p>Test Duration: </p>
+
+	 		</div>
 	 	)
 	 }
 }

@@ -1,1 +1,1 @@
-import Dashboard from './dashboard.js';
+import Dashboard from './App.js';

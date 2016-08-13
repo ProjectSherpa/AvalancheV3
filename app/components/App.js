@@ -64,8 +64,7 @@ class Dashboard extends React.Component {
             </Well>
 				</Row>
         <Row>
-          <Col xs={6} md={6}><Form/></Col>
-          <Col xs={6} md={6}><Results/></Col>
+          <Col xs={6} md={6}>{this.props.children}</Col>
         </Row>
 			</Grid>
 		)
@@ -73,7 +72,7 @@ class Dashboard extends React.Component {
 }
 
 
-class DashboardTester extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -89,7 +88,6 @@ class DashboardTester extends React.Component {
             </Well>
         </Row>
         <Row>
-          <Col xs={6} md={6}><Form/></Col>
           <Col xs={6} md={6}><Results/></Col>
         </Row>
       </Grid>
@@ -112,8 +110,9 @@ var destination = document.querySelector("#container");
 ReactDOM.render(
   <Router>
     <Route path="/" component={Dashboard}>
-    </Route>
-    <Route path="/Results" component={DashboardTester}>
+      <IndexRoute component={Form}>
+      <Route path="/Results" component={Results} />
+      <Route path="/Form" component={Form} />
     </Route>
   </Router>,
   destination

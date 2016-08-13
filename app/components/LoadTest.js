@@ -101,12 +101,12 @@ class Form extends React.Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-          <Link role="button" to="/results">
-            Review
+          <Link role="button" to="/results" onClick={this.simulationSubmit.bind(this)}>
+            Simulate
           </Link>
       </form>
     );
   }
 };
 
-export default Form;
+export default LoadTest;
