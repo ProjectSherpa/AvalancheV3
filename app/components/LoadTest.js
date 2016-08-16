@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Image, Jumbotron, FormGroup, FormControl, HelpBlock, ControlLabel, FieldGroup, Button, Checkbox} from 'react-bootstrap';
 import { Router, Route, Link , IndexRoute} from 'react-router';
 
-class Form extends React.Component {
+class LoadTest extends React.Component {
 
 	constructor(props) {
 	  super(props);
@@ -18,16 +18,22 @@ class Form extends React.Component {
 
 	simulationSubmit() {
 
+    this.props.startLoad();
 		axios.post('http://localhost:3001/avalanche', {
 			url: this.state.endpoint, 
 			maxSeconds: this.state.duration, 
 			concurrency: this.state.concurrency, 
 			requestsPerSecond: this.state.rps, 
 		})
-		.then(function (response) {
-		    console.log(response);
+		.then((response) => {                                           /// Note
+		    this.props.endLoad();
+        console.log(response.data);
+        console.log(this.props.max);
+        this.props.onResponse(JSON.stringify(response.data));
+        console.log(this.props.max);
 		  })
-	  .catch(function (error) {
+	  .catch(error => {
+      this.props.endLoad();
 	    console.log(error);
 	  });
 	}

@@ -555,6 +555,28 @@
         }
       }
     },
+    "chart.js": {
+      "version": "2.2.1",
+      "from": "chart.js@latest",
+      "resolved": "https://registry.npmjs.org/chart.js/-/chart.js-2.2.1.tgz"
+    },
+    "chartjs-color": {
+      "version": "2.0.0",
+      "from": "chartjs-color@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.0.0.tgz",
+      "dependencies": {
+        "color-convert": {
+          "version": "0.5.3",
+          "from": "color-convert@>=0.5.3 <0.6.0",
+          "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-0.5.3.tgz"
+        }
+      }
+    },
+    "chartjs-color-string": {
+      "version": "0.4.0",
+      "from": "chartjs-color-string@>=0.4.0 <0.5.0",
+      "resolved": "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.4.0.tgz"
+    },
     "chokidar": {
       "version": "1.6.0",
       "from": "chokidar@>=1.0.0 <2.0.0",
@@ -2091,6 +2113,11 @@
           "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
         }
       }
+    },
+    "moment": {
+      "version": "2.14.1",
+      "from": "moment@>=2.10.6 <3.0.0",
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.14.1.tgz"
     },
     "ms": {
       "version": "0.7.1",

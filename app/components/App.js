@@ -1,121 +1,82 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from './Form';
-import Results from './Results';
-import {Grid, Row, Col, Clearfix, Panel, Well, Button, Glyphicon} from 'react-bootstrap';
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Image, Jumbotron, FormGroup, FormControl, HelpBlock, ControlLabel} from 'react-bootstrap';
-import { Router, Route, Link , IndexRoute} from 'react-router';
+import {Grid, Row, Col, Clearfix, Panel, Well, Button, FormGroup, FormControl, Glyphicon} from 'react-bootstrap';
 
-var Sidebar = require('react-sidebar').default;
+import NavigationBar from './Navbar';
+import Sidebar from './Sidebar';
 
-var Menu = require('react-burger-menu').slide;
-
-
-
-var Example = React.createClass({
-  showSettings: function(event) {
-    event.preventDefault();
-  },
-  render: function() {
-    return (
-      <Menu>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/">About</a>
-        <a id="contact" className="menu-item" href="/">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-      </Menu>
-    );
-  }
-});
-
-const navbarInstance = (
-  <Navbar>
-    <Navbar.Header>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullLeft>
-          <NavItem eventKey={1} href="#">
-          </NavItem>
-      </Nav>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="#">Project Sherpa</NavItem>
-        <NavItem eventKey={2} href="#">Github</NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-);
-
-// Full Dashboard
-
-class Dashboard extends React.Component {
+class App extends React.Component {
 	constructor(props) {
 	  super(props);
-	}
+
+    /// STATES 
+
+    this.state = {
+      loading: false,
+      max: null,
+      min: null,
+      mean: null,
+      rps: null,
+      duration: null
+    };
+
+    this.onResponse = this.onResponse.bind(this);
+    this.startLoad = this.startLoad.bind(this); 
+    this.endLoad = this.endLoad.bind(this);
+  }
+
+  onResponse(response) {
+    response = JSON.parse(response);
+    console.log(response);
+    this.setState({
+      max: response.maxLatencyMs,
+      min: response.minLatencyMs,
+      mean: response.meanLatencyMs,
+      rps: response.rps,
+      duration: response.totalTimeSeconds,
+
+    }); 
+  }
+
+  startLoad() {
+    this.setState({loading: true});
+  }
+
+  endLoad() {
+    this.setState({loading: false});
+  }
 
 	render() {
 		return  (
-
-			<Grid>
-				<Row>
-          <Col md={6} mdPull={6} />
-            <Well>
-              <h1>Avalanche V3</h1>
-            </Well>
-				</Row>
-        <Row>
-          <Col xs={6} md={6}>{this.props.children}</Col>
-        </Row>
-			</Grid>
-		)
-	}
-}
-
-
-class Results extends React.Component {
-  constructor(props) {
-    super(props);
+  			<Grid>
+          <Sidebar/>
+          <NavigationBar/>
+  				<Row>
+            <Col md={6} mdPull={6} />
+              <Well>
+                <h1>Avalanche V3</h1>
+              </Well>
+  				</Row>
+          <Row>
+            <Col xs={6} md={6}>{this.props.children && React.cloneElement(this.props.children, {
+              response: this.state.response,
+              max: this.state.max,  
+              min: this.state.min,  
+              mean: this.state.mean,  
+              rps: this.state.rps,  
+              duration: this.state.duration,  
+              loading: this.state.loading,
+              onResponse: this.onResponse,
+              startLoad: this.startLoad,
+              endLoad: this.endLoad
+            })}
+            </Col>
+          </Row>
+  			</Grid>
+  		)
+  	}
   }
 
-  render() {
-    return  (
-
-      <Grid>
-        <Row>
-          <Col md={6} mdPull={6} />
-            <Well>
-              <h1>Results</h1>
-            </Well>
-        </Row>
-        <Row>
-          <Col xs={6} md={6}><Results/></Col>
-        </Row>
-      </Grid>
-    )
-  }
-}
-
-/// Navigation Bar
-
-
-
-
-
-/// Render
-
-ReactDOM.render(navbarInstance, document.getElementById('nav'));
-
-var destination = document.querySelector("#container");
-  
-ReactDOM.render(
-  <Router>
-    <Route path="/" component={Dashboard}>
-      <IndexRoute component={Form}>
-      <Route path="/Results" component={Results} />
-      <Route path="/Form" component={Form} />
-    </Route>
-  </Router>,
-  destination
-);
+export default App;
 
 

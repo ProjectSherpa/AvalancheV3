@@ -21,4 +21,4 @@ class Header extends React.Component {
 	}
 }
 
- export default Results;
+ export default Header;
