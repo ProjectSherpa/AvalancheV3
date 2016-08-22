@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from 'chart.js'
+import Chart from 'chart.js';
+import DonutChart from './DonutChart';
+import DonutChartUpdate from './DonutChartUpdate';
+import Cards from './Cards';
+import fullPanel from './fullPanel';
+import Panels from './Panels';
+import ReportHeader from './ReportHeader';
+
 
 
 
@@ -17,13 +24,8 @@ class Results extends React.Component {
 	 	}
 	 	return (
 	 		<div>
-		 		<h3>Results of your test</h3>
-		 		<p>Max Latency: {this.props.max}</p>
-		 		<p>Min Latency: {this.props.min}</p>
-		 		<p>Mean Latency: {this.props.mean}</p>
-		 		<p>RPS: {this.props.rps}</p>
-		 		<p>Test Duration: {this.props.duration}</p>
-
+		 		<Cards/>
+		 		<Panels/>
 	 		</div>
 	 	)
 	 }

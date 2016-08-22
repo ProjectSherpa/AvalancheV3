@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Grid, Row, Col, Clearfix, Panel, Well, Button, FormGroup, FormControl, Glyphicon} from 'react-bootstrap';
+import * as d3 from "d3";
+
 
 import NavigationBar from './Navbar';
 import Sidebar from './Sidebar';
+import ReportHeader from './ReportHeader';
 
 class App extends React.Component {
 	constructor(props) {
@@ -13,11 +16,12 @@ class App extends React.Component {
 
     this.state = {
       loading: false,
-      max: null,
+      max: 50,
       min: null,
       mean: null,
       rps: null,
-      duration: null
+      duration: null,
+      test: true
     };
 
     this.onResponse = this.onResponse.bind(this);
@@ -46,19 +50,46 @@ class App extends React.Component {
     this.setState({loading: false});
   }
 
+
 	render() {
+
+
+    if (!this.props.test) {
+      return (
+      <div>
+        <NavigationBar/>
+        <ReportHeader/>
+          <div>
+            <Grid>
+              <Row>
+                <Col xs={12} md={12}>{this.props.children && React.cloneElement(this.props.children, {
+                  response: this.state.response,
+                  max: this.state.max,  
+                  min: this.state.min,  
+                  mean: this.state.mean,  
+                  rps: this.state.rps,  
+                  duration: this.state.duration,  
+                  loading: this.state.loading,
+                  onResponse: this.onResponse,
+                  startLoad: this.startLoad,
+                  endLoad: this.endLoad
+                })}
+                </Col>
+              </Row>
+            </Grid>
+          </div>
+      </div>
+      ) 
+    }
+
 		return  (
+      
+      <div>
+      <NavigationBar/>
+
   			<Grid>
-          <Sidebar/>
-          <NavigationBar/>
-  				<Row>
-            <Col md={6} mdPull={6} />
-              <Well>
-                <h1>Avalanche V3</h1>
-              </Well>
-  				</Row>
           <Row>
-            <Col xs={6} md={6}>{this.props.children && React.cloneElement(this.props.children, {
+            <Col xs={12} md={12}>{this.props.children && React.cloneElement(this.props.children, {
               response: this.state.response,
               max: this.state.max,  
               min: this.state.min,  
@@ -73,10 +104,12 @@ class App extends React.Component {
             </Col>
           </Row>
   			</Grid>
+        </div>
   		)
   	}
   }
 
 export default App;
+
 
 
