@@ -26,7 +26,7 @@
     "path": "^0.12.7",
     "postcss-loader": "^0.8.1",
     "precss": "^1.4.0",
-    "react": "^0.14.7",
+    "react": "*",
     "react-dom": "^0.14.7",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
@@ -36,10 +36,18 @@
   "dependencies": {
     "axios": "^0.13.1",
     "body-parser": "^1.15.2",
+    "chart.js": "https://registry.npmjs.org/chart.js/-/chart.js-2.2.1.tgz",
+    "css-loader": "https://registry.npmjs.org/css-loader/-/css-loader-0.23.1.tgz",
+    "d3": "^4.2.2",
     "loadtest": "^1.4.4",
     "react-bootstrap": "^0.30.2",
     "react-burger-menu": "https://registry.npmjs.org/react-burger-menu/-/react-burger-menu-1.10.2.tgz",
+    "react-chartjs-2": "^1.2.4",
+    "react-rangeslider": "^1.0.3",
     "react-router": "^2.6.1",
-    "react-sidebar": "^2.2.1"
+    "react-sidebar": "^2.2.1",
+    "react-spinkit": "^1.1.11",
+    "rebass": "^0.3.1",
+    "video.js": "^5.10.8"
   }
 }
