@@ -30,7 +30,7 @@ class LoadTest extends React.Component {
 			concurrency: this.state.concurrency, 
 			requestsPerSecond: this.state.rps, 
 		})
-		.then((response) => {                                           /// Note
+		.then((response) => {                                           
 		    this.props.endLoad();
         console.log(response.data);
         console.log(this.props.max);
