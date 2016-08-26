@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Image, Jumbotron, FormGroup, FormControl, HelpBlock, ControlLabel, FieldGroup, Button, Checkbox} from 'react-bootstrap';
 import { Router, Route, Link , IndexRoute} from 'react-router';
-import RangeSlider from './RangeSlider';
+import InputRange from 'react-input-range';
 
 
 
@@ -15,11 +15,13 @@ class LoadTest extends React.Component {
 	  	endpoint: 'http://www.google.com',
 	  	duration: 30,
 	  	concurrency: 30,
-	  	rps: ''
+	  	rps: 0
 	  };
 	}	
 
 	simulationSubmit() {
+
+    console.log(this.state.concurrency)
 
     this.props.startLoad();
 		axios.post('http://localhost:3001/avalanche', {
@@ -63,13 +65,20 @@ class LoadTest extends React.Component {
 	   this.setState({rps: e.target.value});
 	}
 
+  handleValuesChange(e) {
+     this.setState({
+       concurrency: e.target.value,
+     });
+    }
+
   render() {
     return (
       <form className='loadTestParams'>
-      <div className="panel-header testText">
+      <div className="panel-header testText loadHeader">
         Avalanche Configuration
       </div>
         <FormGroup controlId="formBasicText">
+        
           <FormControl
             type="text"
             value={this.state.value}
@@ -78,37 +87,15 @@ class LoadTest extends React.Component {
           />
           <FormControl.Feedback />
         </FormGroup>
-       
+        <div className = 'loadTesterText'>Test Duration: {this.state.duration}</div>
+        <input type="range" min="0" max="60" val="30" id="fader" onChange={this.durationChange.bind(this)}/>
 
-        <FormGroup controlId="formBasicText2">
-          <FormControl
-            type="text"
-            value={this.state.value}
-            placeholder="Duration in Seconds (example: 60)"
-            onChange={this.durationChange.bind(this)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
+        <div className = 'loadTesterText'>Concurrent Users: {this.state.concurrency}</div>
+        <input type="range" min="0" max="1000" val="150" id="fader" onChange={this.concurrencyChange.bind(this)}/>
 
-        <FormGroup controlId="formBasicText3">
-          <FormControl
-            type="text"
-            value={this.state.value}
-            placeholder="Concurrent User Count (example: 200)"
-            onChange={this.concurrencyChange.bind(this)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
+        <div className = 'loadTesterText'>Requests Per Second: {this.state.rps}</div>
+        <input type="range" min="0" max="1000" val="500" id="fader" onChange={this.rpsChange.bind(this)}/>
 
-        <FormGroup controlId="formBasicText4">
-          <FormControl
-            type="text"
-            value={this.state.value}
-            placeholder="Requests Per Second (Optional)"
-            onChange={this.rpsChange.bind(this)}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
           <Link role="button" className="myButton" to="/results" onClick={this.simulationSubmit.bind(this)}>
             Run Simulation
           </Link>

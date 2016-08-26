@@ -22,6 +22,7 @@ class App extends React.Component {
       duration: 60,
       mailBarToggle: true,
       loading: false,
+      endpoint: null,
 
       res200: 92,
       res403: 43,
