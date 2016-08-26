@@ -24,7 +24,7 @@ class LoadTest extends React.Component {
     console.log(this.state.concurrency)
 
     this.props.startLoad();
-		axios.post('http://localhost:3001/avalanche', {
+		axios.post('http://54.152.118.83/avalanche', {
 			url: this.state.endpoint, 
 			maxSeconds: this.state.duration, 
 			concurrency: this.state.concurrency, 
