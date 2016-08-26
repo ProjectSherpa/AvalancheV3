@@ -1,5 +1,5 @@
 body {
-    background-color: #e8e8e9;
+    background-color: rgba(186, 206, 218, 0.4);
 
     font-family: 'Roboto', sans-serif !important;
 }
@@ -79,10 +79,14 @@ body {
     font-weight: 400;
 }
 
+.card {
+    box-shadow: 2px 2px 5px #888888;
+}
+
 .panel-title{
     color:#6e6e74;
     font-size: 1.5em;
-    font-weight: 300;
+    font-weight: 500 !important;
 }
 
 .line-height-30{
@@ -169,4 +173,188 @@ body {
 
 .navbar {
     margin-bottom: 10px !important;
+}
+
+.wandering-cubes {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.cube1, .cube2 {
+  background-color: #333;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: cubemove 1.8s infinite ease-in-out;
+  animation: cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes cubemove {
+  25% { -webkit-transform: translateX(44px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(44px) translateY(44px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(44px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes cubemove {
+  25% { 
+    transform: translateX(84px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(84px) rotate(-90deg) scale(0.5);
+  } 50% {
+    /* Hack to make FF rotate in the right direction */
+    transform: translateX(84px) translateY(84px) rotate(-179deg);
+    -webkit-transform: translateX(84px) translateY(84px) rotate(-179deg);
+  } 50.1% {
+    transform: translateX(84px) translateY(84px) rotate(-180deg);
+    -webkit-transform: translateX(84px) translateY(84px) rotate(-180deg);
+  } 75% {
+    transform: translateX(0px) translateY(84px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(84px) rotate(-270deg) scale(0.5);
+  } 100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+.three-bounce > div {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.three-bounce .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.three-bounce .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+.splash-video {
+  width: 90% !important;
+  height: 350px;
+}
+
+.form {
+  height: 200px;
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 60%;
+}
+
+.InputRange {
+  margin-bottom: 10rem;
+}
+
+.bg {
+    box-shadow: 2px 2px 5px rgba(100,100,100,.5);
+}
+
+.glyphicon-equalizer {
+    margin-right: 20px;
+}
+
+.loadTestParams {
+    background-color: rgba(0,0,0,.12);
+    border-radius: 8px;
+    margin-top: 9%;
+}
+
+.form-control {
+    width: 50%;
+    position: relative;
+    left: 25%;
+    border-radius: 10px;
+}
+
+.myButton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#777777;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:9px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+
+}
+
+.range {
+    width: 500px;
+}
+
+.testText {
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    font-size: 2em;
+    font-style: inherit;
+}
+
+.LineChart {
+    width: 95%;
+    padding-left: 2.5%;   
 }

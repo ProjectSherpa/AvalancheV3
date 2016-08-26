@@ -49,21 +49,21 @@ body {
     margin-bottom: 20px;
 }
 
-.range-custom{
+.range-custom {
     padding-bottom: 10px;
     padding-left: 5px;
 }
 
-.range-custom-child{
+.range-custom-child {
     line-height:30px;
 }
 
-.range-span{
+.range-span {
     color:#7f7f85;
     padding-right:10px;
 }
 
-.padding-left-5{
+.padding-left-5 {
     padding-left: 5px;
 }
 
@@ -170,5 +170,3 @@ body {
 .navbar {
     margin-bottom: 5px !important;
 }
-     
-                

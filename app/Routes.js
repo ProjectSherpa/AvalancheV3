@@ -8,6 +8,7 @@ import LoadTest from './components/LoadTest';
 import Results from './components/Results';
 import Sidebar from './components/Sidebar';
 import Loading from './components/Loading';
+import SplashPage from './components/SplashPage';
 
 class AppRouter extends React.Component {
 
@@ -20,6 +21,7 @@ class AppRouter extends React.Component {
           <Route path="results" component={Results}></Route>
           <Route path="loadtest" component={LoadTest}></Route>
           <Route path="loading" component={Loading}></Route>
+          <Route path="home" component={SplashPage}></Route>
         </Route>
       </Router>
     )

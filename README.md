@@ -1,17 +1,17 @@
-# Vagrant React-Webpack
+# Avalanche Testing Tool
 
-A basic Vagrant setup with Node.js, NVM, React.js, Webpack, and PostCSS.
-
-Uses the ubunty/trusty64 Vagrant box for the official Ubuntu Server 14.04 LTS (Trusty Tahr) builds.
-
-_Note: While this box includes PostCSS, it sticks with just a couple basic plugins - Autoprefixer and PreCSS. See [this Gist](https://gist.github.com/danielwrobert/cac4a4a44f1430339861) for an example with additional optimization plugins._
+A graphical interface for running user load tests on your website.
 
 
 ## Getting started
 
-To get up and running with this environment, you first need to have Virtualbox and Vagrant installed on your system.
+To get up and running with this environment, please perform the following:
 
-If you don't already have those, visit the downloads pages below and follow the instructions for your operating system:
+npm install
+
+(in server folder) node server.js
+
+npm start
 
 * [Virtualbox Downloads](https://www.virtualbox.org/wiki/Downloads)
 * [Vagrant Downloads](https://www.vagrantup.com/downloads.html)

@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, Image, Jumbotron, FormGroup, FormControl, HelpBlock, ControlLabel, FieldGroup, Button, Checkbox} from 'react-bootstrap';
 import { Router, Route, Link , IndexRoute} from 'react-router';
+import RangeSlider from './RangeSlider';
+
+
 
 class LoadTest extends React.Component {
 
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	  	endpoint: '',
+	  	endpoint: 'http://www.google.com',
 	  	duration: 30,
 	  	concurrency: 30,
 	  	rps: ''
@@ -62,53 +65,52 @@ class LoadTest extends React.Component {
 
   render() {
     return (
-      <form>
-      <h3>Avalanche Configuration</h3>
+      <form className='loadTestParams'>
+      <div className="panel-header testText">
+        Avalanche Configuration
+      </div>
         <FormGroup controlId="formBasicText">
-          <ControlLabel>Endpoint w/ Port</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Enter Endpoint with http prefix"
+            placeholder="Endpoint with Prefix (http://www.google.com)"
             onChange={this.endpointChange.bind(this)}
           />
           <FormControl.Feedback />
         </FormGroup>
+       
 
         <FormGroup controlId="formBasicText2">
-          <ControlLabel>Duration</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Enter duration in seconds"
+            placeholder="Duration in Seconds (example: 60)"
             onChange={this.durationChange.bind(this)}
           />
           <FormControl.Feedback />
         </FormGroup>
 
         <FormGroup controlId="formBasicText3">
-          <ControlLabel>Concurrent Threads</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Enter number of users"
+            placeholder="Concurrent User Count (example: 200)"
             onChange={this.concurrencyChange.bind(this)}
           />
           <FormControl.Feedback />
         </FormGroup>
 
         <FormGroup controlId="formBasicText4">
-          <ControlLabel>Requests Per Second</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Optional Override Parameter"
+            placeholder="Requests Per Second (Optional)"
             onChange={this.rpsChange.bind(this)}
           />
           <FormControl.Feedback />
         </FormGroup>
-          <Link role="button" to="/results" onClick={this.simulationSubmit.bind(this)}>
-            Simulate
+          <Link role="button" className="myButton" to="/results" onClick={this.simulationSubmit.bind(this)}>
+            Run Simulation
           </Link>
       </form>
     );

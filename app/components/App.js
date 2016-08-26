@@ -15,13 +15,20 @@ class App extends React.Component {
     /// STATES 
 
     this.state = {
-      loading: false,
       max: 50,
-      min: null,
-      mean: null,
-      rps: null,
-      duration: null,
-      test: true
+      min: 23,
+      mean: 35,
+      rps: 200,
+      duration: 60,
+      mailBarToggle: true,
+      loading: false,
+
+      res200: 92,
+      res403: 43,
+      res404: 65,
+      res500: 31,
+      res503: 19,
+      res504: 28,
     };
 
     this.onResponse = this.onResponse.bind(this);
@@ -54,7 +61,7 @@ class App extends React.Component {
 	render() {
 
 
-    if (!this.props.test) {
+    if (this.state.mailBarToggle === false) {
       return (
       <div>
         <NavigationBar/>
@@ -72,7 +79,13 @@ class App extends React.Component {
                   loading: this.state.loading,
                   onResponse: this.onResponse,
                   startLoad: this.startLoad,
-                  endLoad: this.endLoad
+                  endLoad: this.endLoad,
+                  res200: this.state.res200,
+                  res403: this.state.res403,
+                  res404: this.state.res404,
+                  res500: this.state.res500,
+                  res503: this.state.res503,
+                  res504: this.state.res504
                 })}
                 </Col>
               </Row>
@@ -99,7 +112,13 @@ class App extends React.Component {
               loading: this.state.loading,
               onResponse: this.onResponse,
               startLoad: this.startLoad,
-              endLoad: this.endLoad
+              endLoad: this.endLoad,
+              res200: this.state.res200,
+              res403: this.state.res403,
+              res404: this.state.res404,
+              res500: this.state.res500,
+              res503: this.state.res503,
+              res504: this.state.res504
             })}
             </Col>
           </Row>

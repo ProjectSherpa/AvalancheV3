@@ -1,4 +1,5 @@
 import React from 'react';
+import {Glyphicon} from 'react-bootstrap';
 
 class ReportHeader extends React.Component {
 	constructor(props) {
@@ -20,7 +21,7 @@ class ReportHeader extends React.Component {
 		var headerBox2 = {
 			backgroundColor: '#e58c72',
 			height: '100%',
-			width: '150px',
+			width: '125px',
 			lineHeight: '75px',
 			textAlign: 'center',
 			color: '#FFFFFF',
@@ -38,13 +39,18 @@ class ReportHeader extends React.Component {
 		    float: 'left'
 		};
 
+		var glyphStyle = {
+			fontSize: '1.9em',
+			marginTop: '17.5px'
+
+		}
+
 		return (
 			<div style={headerBox}>
 			    <div style={headerBox3}>
-			    	WWW.SCALABILITYSHERPA.COM - 9/12
 			    </div>
 			    	<div style={headerBox2}>
-			            Email
+			            <Glyphicon glyph="envelope"  style={glyphStyle}/>
 			        </div>
 			</div>
 		)
@@ -52,3 +58,6 @@ class ReportHeader extends React.Component {
 }
 
 export default ReportHeader;
+
+
+

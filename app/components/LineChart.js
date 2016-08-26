@@ -2,7 +2,7 @@ import React from 'react';
 import {Line} from 'react-chartjs-2';
 
 const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+  labels: ['20', '40', '60', '80', '100', '120'],
   datasets: [
     {
       label: 'Latency Tracker',
@@ -33,7 +33,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div>
+      <div className = 'LineChart'>
         <Line data={data} />
       </div>
     );
