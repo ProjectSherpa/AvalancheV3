@@ -21,7 +21,7 @@ class Cards extends React.Component {
                 />
                 <SingleCard
                 header='Duration'
-                val={this.props.duration}
+                val={Math.round(this.props.duration)}
                 />
                 <SingleCard
                 header='Mean Latency (secs)'
